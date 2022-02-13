@@ -74,6 +74,8 @@ package com.learnprogramming.sort.selection;
 //
 //
 
+import com.learnprogramming.commons.ArrayUtils;
+
 public class SelectionSort {
 
 	public static void sort(int[] array) {
@@ -84,18 +86,7 @@ public class SelectionSort {
 					indexOfBiggest = i;
 				}
 			}
-			swap(array, indexOfBiggest, lastUnsortedIndex);
+			ArrayUtils.swap(array, indexOfBiggest, lastUnsortedIndex);
 		}
-	}
-
-	//	swap element on index i with element on index j in array "array"
-	private static void swap(int[] array, int i, int j) {
-		if(i == j) {
-			return;
-		}
-
-		int temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
 	}
 }
