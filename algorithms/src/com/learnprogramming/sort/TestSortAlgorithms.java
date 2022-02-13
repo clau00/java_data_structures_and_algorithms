@@ -2,7 +2,9 @@ package com.learnprogramming.sort;
 
 import java.util.Arrays;
 
+import com.learnprogramming.commons.ArrayUtils;
 import com.learnprogramming.sort.bubble.BubbleSort;
+import com.learnprogramming.sort.insertion.InsertionSort;
 import com.learnprogramming.sort.selection.SelectionSort;
 
 public class TestSortAlgorithms {
@@ -13,33 +15,25 @@ public class TestSortAlgorithms {
 
 		applySort(Arrays.copyOf(intArray, intArray.length), "Bubble Sort");
 		applySort(Arrays.copyOf(intArray, intArray.length), "Selection Sort");
+		applySort(Arrays.copyOf(intArray, intArray.length), "Insertion Sort");
     }
 
     private static void applySort(int[] array, String sortType) {
+		ArrayUtils.printArray(null, array);
     	switch(sortType) {
 			case "Bubble Sort":
-				printArray(null, array);
 				BubbleSort.sort(array);
-				printArray(sortType, array);
 				break;
 			case "Selection Sort":
-				printArray(null, array);
 				SelectionSort.sort(array);
-				printArray(sortType, array);
+				break;
+			case "Insertion Sort":
+				InsertionSort.sort(array);
 				break;
 			default:
 				System.out.println("Please enter \"Bubble Sort\" or \"Selection Sort\"!");
 		}
+		ArrayUtils.printArray(sortType, array);
 	}
 
-    private static void printArray(String typeOfSort, int[] array) {
-		System.out.println("\n\t" + (typeOfSort == null ? "Unsorted Array:" : typeOfSort + ":"));
-        for(int i = 0; i < array.length; i++) {
-            if(i == array.length - 1) {
-                System.out.print(array[i] + "\n");
-            } else {
-                System.out.print(array[i] + ", ");
-            }
-        }
-    }
 }
