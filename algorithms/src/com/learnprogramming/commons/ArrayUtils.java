@@ -13,4 +13,15 @@ public class ArrayUtils {
 		array[j] = temp;
 	}
 
+	public static void printArray(String typeOfSort, int[] array) {
+		System.out.println("\n\t" + (typeOfSort == null ? "Unsorted Array:" : typeOfSort + ":"));
+		for(int i = 0; i < array.length; i++) {
+			if(i == array.length - 1) {
+				System.out.print(array[i] + "\n");
+			} else {
+				System.out.print(array[i] + ", ");
+			}
+		}
+	}
+
 }
